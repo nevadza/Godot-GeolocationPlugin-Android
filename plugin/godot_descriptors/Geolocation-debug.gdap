@@ -1,0 +1,10 @@
+[config]
+
+name = "Geolocation - Debug"
+binary_type = "local"
+binary = "Geolocation-debug.aar"
+
+[dependencies]
+
+remote=["com.google.android.gms:play-services-location:21.3.0"]
+

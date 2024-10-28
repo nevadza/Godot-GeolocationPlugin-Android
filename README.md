@@ -1,18 +1,29 @@
 # Geolocation Plugin
 
-A Godot Geolocation Plugin for Android. Compatible with Godot 3.5.1.
+A Godot Geolocation Plugin for Android. Compatible with Godot 4.3.
 
 ## Install plugin
 
 ### Android
 
- 1. Navigate to <https://github.com/WolfBearGames/Godot-GeolocationPlugin-Android/releases/> and download the latest release.
+ 1. Navigate to <https://github.com/nevadzask/Godot-GeolocationPlugin-Android/releases/> and download the latest release.
  2. Extract the contents of the project zip file into the `res://android/plugins` folder in your project. If this folder does not exist, create it manually.
  3. Install Android Build Template (`Project > Install Android Build Template...`)
  4. Add Android Export (`Project > Export...`)
- 5. Enable `Use Custom Build` in `Custom Build`-section
+ 5. Enable `Use Gradle Build` in `Gradle Build`-section
  6. Enable `Geolocation` in the `Plugins`-section
  7. Enable `Access Coarse Location` and `Access Fine Location` in the `Permissions`-section
+
+<br/>
+
+## Build plugin
+The plugin is based on the official Android Godot plugin and uses Gradle to compile and build AAR:
+
+`./gradlew clean build`
+
+Built AARs are in `plugin/build/outputs/aar`. Godot plugin descriptor files are in `plugin/godot_descriptors` directory.
+
+<br/>
 
 ## API
 
@@ -26,7 +37,7 @@ The `authorization_changed(int)` signal will be triggered when the user has made
 
 #### Location
 
-- `request_location()` - Requests a single location the set accurarcy. The result will be delivered by the `location_update` signal. An error might be delivered by the `error` signal (`ERROR_DENIED`, `ERROR_NETWORK`)
+- `request_location()` - Requests a single location the set accuracy. The result will be delivered by the `location_update` signal. An error might be delivered by the `error` signal (`ERROR_DENIED`, `ERROR_NETWORK`)
 
 - `start_updating_location()` - Start location updates with the set options. Results will be delivered by the `location_update` signal. An error might be delivered by the `error` signal (`ERROR_DENIED`, `ERROR_NETWORK`)
 
@@ -70,7 +81,7 @@ The `authorization_changed(int)` signal will be triggered when the user has made
 
 - `should_show_permission_requirement_explanation() -> bool` *[Android only]* - returns true `true` when permissions where rejected before and the user needs an explanation why the permissions are neccesary
 
-- `request_location_capabilty()` - checks device capability for locartion services. Async result (`true`/`false`) is delivered by `location_capability_result` signal
+- `request_location_capability()` - checks device capability for locartion services. Async result (`true`/`false`) is delivered by `location_capability_result` signal
 
 - `should_check_location_capability() -> bool` - returns true `true` when you should manually check for location capability (`true` when `set_auto_check_location_capability` is `false` on Android, alsways `false` on iOS)
 
@@ -89,17 +100,17 @@ The `authorization_changed(int)` signal will be triggered when the user has made
 
 ### Wrappers for easier usage
 
-#### C\#
-
-<https://github.com/WolfBearGames/Geolocation-Csharp-Wrapper>
+<!-- #### C\# -->
+<!--  -->
+<!-- <https://github.com/nevadzask/Geolocation-Csharp-Wrapper> -->
 
 #### GDScript
 
-<https://github.com/WolfBearGames/Geolocation-GDScript-Wrapper>
+<https://github.com/nevadzask/Geolocation-GDScript-Wrapper>
 
-### Example Test App
-
-<https://github.com/WolfBearGames/GeolocationTestApp>
+<!-- ### Example Test App -->
+<!--  -->
+<!-- <https://github.com/nevadzask/GeolocationTestApp> -->
 
 ### Enums
 
@@ -192,9 +203,13 @@ enum geolocation_error_codes {
 - `["heading_accuracy"] float` - the heading accuracy in degrees *(-1 when unavailable)*
 - `["timestamp"] int` - the current time as the number of seconds since 1970-01-01
 
+<br/>
+
 ## License
 
 Copyright 2022 Andreas Ritter (www.wolfbeargames.de)
+
+Copyright 2024 Gabriel Olekšák (www.nevadza.com)
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
