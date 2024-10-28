@@ -21,6 +21,8 @@ The plugin is based on the official Android Godot plugin and uses Gradle to comp
 
 `./gradlew clean build`
 
+Built AARs are in `plugin/build/outputs/aar`. Godot plugin descriptor files are in `plugin/godot_descriptors` directory.
+
 <br/>
 
 ## API
