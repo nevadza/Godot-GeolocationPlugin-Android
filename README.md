@@ -1,6 +1,6 @@
 # Geolocation Plugin
 
-A Godot Geolocation Plugin for Android. Compatible with Godot 4.4.
+A Godot Geolocation Plugin for Android. Compatible with Godot 4.5.
 
 ## Install plugin
 
